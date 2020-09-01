@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ce402995-8102-4d24-bdae-3359e9de9b1c" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+    <option name="PARALLEL_COMPILATION" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Enum" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="alwaysUpdateSnapshots" value="true" />
+        <option name="localRepository" value="C:\maven_localRepository" />
+        <option name="mavenHome" value="D:/software/apache-maven-3.6.3" />
+        <option name="userSettingsFile" value="D:\software\apache-maven-3.6.3\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+        <option name="vmOptionsForImporter" value="-Xms1024m -Xmx2048m" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="skipTests" value="true" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1gfvISRp8ylwm3hQcspHvz8rIrP" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last.edited.regexp" value="Sample Text" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/kudu11xwriter/src/main" />
+    <property name="scala_project_settings_configurable.last_selected_tab_index" value="0" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="q1" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\workspace\datax-plugins\kudu11xwriter\src\main" />
+      <recent name="D:\workspace\datax-plugins\kudu11xwriter\src\main\resources" />
+      <recent name="D:\workspace\datax-plugins\kudu11xwriter\src\main\java\q1\kudu\conf" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="test.kuduTypeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="kudu11xwriter" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.dai.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.dai" />
+      <option name="MAIN_CLASS_NAME" value="com.dai.test" />
+      <option name="METHOD_NAME" value="kuduTypeTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.test.kuduTypeTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ScalaProjectSettings">
+    <option name="customScalatestSyntaxHighlighting" value="true" />
+    <option name="includeBlockExpressions" value="true" />
+    <option name="includeLiterals" value="true" />
+    <option name="showArgumentsToByNameParams" value="true" />
+    <option name="showImplisitConversions" value="true" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\91245\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ce402995-8102-4d24-bdae-3359e9de9b1c" name="Default Changelist" comment="" />
+      <created>1598518380508</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1598518380508</updated>
+      <workItem from="1598518386882" duration="82226000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="721" y="162" key="#com.intellij.ide.util.MemberChooser" timestamp="1598864870240">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="721" y="162" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598864870240" />
+    <state width="1865" height="333" key="GridCell.Tab.0.bottom" timestamp="1598952480358">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1865" height="333" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598952480358" />
+    <state width="1865" height="333" key="GridCell.Tab.0.center" timestamp="1598952480357">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1865" height="333" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598952480357" />
+    <state width="1865" height="333" key="GridCell.Tab.0.left" timestamp="1598952480357">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1865" height="333" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598952480357" />
+    <state width="1865" height="333" key="GridCell.Tab.0.right" timestamp="1598952480358">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1865" height="333" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598952480358" />
+    <state x="614" y="198" width="675" height="655" key="StructurePopup" timestamp="1598525743009">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="614" y="198" width="675" height="655" key="StructurePopup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598525743009" />
+    <state x="2113" y="-22" width="1502" height="985" key="dock-window-1" timestamp="1598952521049">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2113" y="-22" width="1502" height="985" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598952521049" />
+    <state x="1920" y="0" width="1502" height="985" maximized="true" key="dock-window-2" timestamp="1598930380276">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1920" y="0" width="1502" height="985" maximized="true" key="dock-window-2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598930380276" />
+    <state x="574" y="193" width="958" height="654" key="find.popup" timestamp="1598527218353">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="574" y="193" width="958" height="654" key="find.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598527218353" />
+    <state x="161" y="148" key="new project wizard" timestamp="1598520397792">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="161" y="148" key="new project wizard/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598520397792" />
+    <state x="532" y="237" key="run.anything.popup" timestamp="1598583436638">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="532" y="237" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598583436638" />
+    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup" timestamp="1598945047263">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598945047263" />
+  </component>
+</project>
