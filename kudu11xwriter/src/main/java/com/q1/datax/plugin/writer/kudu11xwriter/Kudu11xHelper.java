@@ -167,11 +167,11 @@ public class Kudu11xHelper {
 
                 String type = "BIGINT".equals(column.getNecessaryValue(Key.TYPE, Kudu11xWriterErrorcode.REQUIRED_VALUE).toUpperCase()) ||
                         "INT".equals(column.getNecessaryValue(Key.TYPE, Kudu11xWriterErrorcode.REQUIRED_VALUE).toUpperCase()) ?
-                        "INT64" : column.getNecessaryValue("type", Kudu11xWriterErrorcode.REQUIRED_VALUE).toUpperCase();
+                        "INT64" : column.getNecessaryValue(Key.TYPE, Kudu11xWriterErrorcode.REQUIRED_VALUE).toUpperCase();
                 String name = column.getNecessaryValue(Key.NAME, Kudu11xWriterErrorcode.REQUIRED_VALUE);
                 Boolean key = column.getBool(Key.PRIMARYKEY, false);
-                String encoding = column.getString(Key.ENCODING, "AUTO_ENCODING").toUpperCase();
-                String compression = column.getString(Key.COMPRESSION, "DEFAULT_COMPRESSION").toUpperCase();
+                String encoding = column.getString(Key.ENCODING, Constant.ENCODING).toUpperCase();
+                String compression = column.getString(Key.COMPRESSION, Constant.COMPRESSION).toUpperCase();
                 String comment = column.getString(Key.COMMENT, "");
 
                 columnSchemas.add(new ColumnSchema.ColumnSchemaBuilder(name, Type.getTypeForName(type))
