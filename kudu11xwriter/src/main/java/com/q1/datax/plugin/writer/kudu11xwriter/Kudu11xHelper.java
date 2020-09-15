@@ -1,5 +1,6 @@
 package com.q1.datax.plugin.writer.kudu11xwriter;
 
+import com.alibaba.datax.common.element.Column;
 import com.alibaba.datax.common.exception.DataXException;
 import com.alibaba.datax.common.util.Configuration;
 import com.alibaba.fastjson.JSON;
@@ -27,12 +28,12 @@ public class Kudu11xHelper {
     public static Map getKuduConfiguration(String kuduConfig) {
         if (StringUtils.isBlank(kuduConfig)) {
             throw DataXException.asDataXException(Kudu11xWriterErrorcode.REQUIRED_VALUE,
-                    "读 Kudu 时需要配置信息，其内容为 Kudu 连接信息");
+                    "Connection configuration information required.");
         }
         Map<String, String> kConfiguration;
         try {
             kConfiguration = JSON.parseObject(kuduConfig, HashMap.class);
-            Validate.isTrue(kConfiguration != null, "kuduConfig不能为空Map结构!");
+            Validate.isTrue(kConfiguration != null, "kuduConfig is null!");
         } catch (Exception e) {
             throw DataXException.asDataXException(Kudu11xWriterErrorcode.GET_KUDU_CONNECTION_ERROR, e);
         }
@@ -105,13 +106,13 @@ public class Kudu11xHelper {
                 try {
                     if (kuduClient.isCreateTableDone(tableName)){
                         Kudu11xHelper.closeClient(kuduClient);
-                        LOG.info("表创建完成");
+                        LOG.info("Table "+ tableName +" is created!");
                         break;
                     }
                     Thread.sleep(1000L);
                     i.decrementAndGet();
                 } catch (Exception e) {
-                    LOG.info("等待表创建....."+i);
+                    LOG.info("Wait for the table to be created..... "+i);
                     try {
                         Thread.sleep(1000L);
                     } catch (InterruptedException ex) {
@@ -125,7 +126,7 @@ public class Kudu11xHelper {
                     kuduClient.close();
                 }
             } catch (KuduException e) {
-                LOG.info("kuduClient已被关闭");
+                LOG.info("Kudu client has been shut down!");
             }
         }
     }
@@ -149,7 +150,7 @@ public class Kudu11xHelper {
                 kuduClient.close();
             }
         } catch (KuduException e) {
-            throw DataXException.asDataXException(Kudu11xWriterErrorcode.CLOSE_KUDU_CONNECTION_ERROR, e);
+            LOG.warn("kudu client is not gracefully closed !");
 
         }
 
@@ -160,7 +161,7 @@ public class Kudu11xHelper {
         List<ColumnSchema> columnSchemas = new ArrayList<>();
         Schema schema = null;
         if (columns == null || columns.isEmpty()) {
-            throw DataXException.asDataXException(Kudu11xWriterErrorcode.REQUIRED_VALUE, "column为必填项，其形式为：column:[{\"name\": \"cf0:column0\",\"type\": \"string\"},{\"name\": \"cf1:column1\",\"type\": \"long\"}]");
+            throw DataXException.asDataXException(Kudu11xWriterErrorcode.REQUIRED_VALUE, "column is not defined，eg：column:[{\"name\": \"cf0:column0\",\"type\": \"string\"},{\"name\": \"cf1:column1\",\"type\": \"long\"}]");
         }
         try {
             for (Configuration column : columns) {
@@ -188,6 +189,18 @@ public class Kudu11xHelper {
         return schema;
     }
 
+    public static Integer getPrimaryKeyIndexUntil(List<Configuration> columns){
+        int i = 0;
+        while ( i < columns.size()  ) {
+            Configuration col = columns.get(i);
+            if (!col.getBool(Key.PRIMARYKEY, false)) {
+                break;
+            }
+            i++;
+        }
+        return i;
+    }
+
     public static void setTablePartition(com.alibaba.datax.common.util.Configuration configuration,
                                          CreateTableOptions tableOptions,
                                          Schema schema) {
@@ -212,7 +225,7 @@ public class Kudu11xHelper {
                     tableOptions.addRangePartition(lower, upper);
                 }
             }
-            LOG.info("设置range分区完成");
+            LOG.info("Set range partition complete!");
         }
 
         // 设置Hash分区
@@ -221,7 +234,7 @@ public class Kudu11xHelper {
             List<String> hashColums = hash.getList(Key.COLUMN, String.class);
             Integer hashPartitionNum = configuration.getInt(Key.HASH_NUM, 3);
             tableOptions.addHashPartitions(hashColums, hashPartitionNum);
-            LOG.info("设置hash分区完成");
+            LOG.info("Set hash partition complete!");
         }
     }
 
@@ -231,7 +244,7 @@ public class Kudu11xHelper {
         String encoding = configuration.getString(Key.ENCODING, Constant.DEFAULT_ENCODING);
         if (!Charset.isSupported(encoding)) {
             throw DataXException.asDataXException(Kudu11xWriterErrorcode.ILLEGAL_VALUE,
-                    String.format("Kuduwriter 不支持您所配置的编码:[%s]", encoding));
+                    String.format("Encoding is not supported:[%s] .", encoding));
         }
         configuration.set(Key.ENCODING, encoding);
         String insertMode = configuration.getString(Key.INSERT_MODE, Constant.INSERT_MODE);
@@ -242,23 +255,26 @@ public class Kudu11xHelper {
         }
         configuration.set(Key.INSERT_MODE, insertMode);
 
-        long writeBufferSize = configuration.getLong(Key.WRITE_BATCH_SIZE, Constant.DEFAULT_WRITE_BATCH_SIZE);
+        Long writeBufferSize = configuration.getLong(Key.WRITE_BATCH_SIZE, Constant.DEFAULT_WRITE_BATCH_SIZE);
         configuration.set(Key.WRITE_BATCH_SIZE, writeBufferSize);
 
-        long mutationBufferSpace = configuration.getLong(Key.MUTATION_BUFFER_SPACE, Constant.DEFAULT_MUTATION_BUFFER_SPACE);
+        Long mutationBufferSpace = configuration.getLong(Key.MUTATION_BUFFER_SPACE, Constant.DEFAULT_MUTATION_BUFFER_SPACE);
         configuration.set(Key.MUTATION_BUFFER_SPACE, mutationBufferSpace);
+
+        Boolean isSkipFail = configuration.getBool(Key.SKIP_FAIL, false);
+        configuration.set(Key.SKIP_FAIL, isSkipFail);
     }
 
     public static void truncateTable(Configuration configuration) {
         String kuduConfig = configuration.getString(Key.KUDU_CONFIG);
         String userTable = configuration.getString(Key.TABLE);
-        LOG.info(String.format("由于您配置了 truncate 为true,KuduWriter begins to truncate table %s .", userTable));
+        LOG.info(String.format("Because you have configured truncate is true,KuduWriter begins to truncate table %s .", userTable));
         KuduClient kuduClient = Kudu11xHelper.getKuduClient(kuduConfig);
 
         try {
             if (kuduClient.tableExists(userTable)) {
                 kuduClient.deleteTable(userTable);
-                LOG.info(String.format("table %s . 已删除", userTable));
+                LOG.info(String.format("table  %s has been deleted.", userTable));
             }
         } catch (KuduException e) {
             throw DataXException.asDataXException(Kudu11xWriterErrorcode.DELETE_KUDU_ERROR, e);

@@ -32,6 +32,6 @@ public enum ColumnType {
             }
         }
         throw DataXException.asDataXException(Kudu11xWriterErrorcode.ILLEGAL_VALUE,
-                String.format("Kuduwriter 不支持该 mode 类型:%s, 目前支持的 mode 类型是:%s", modeName, Arrays.asList(values())));
+                String.format("Kuduwriter does not support the type:%s, currently supported types are:%s", modeName, Arrays.asList(values())));
     }
 }

@@ -6,6 +6,7 @@ import com.alibaba.datax.common.exception.DataXException;
 import com.alibaba.datax.common.plugin.RecordReceiver;
 import com.alibaba.datax.common.plugin.TaskPluginCollector;
 import com.alibaba.datax.common.util.Configuration;
+import com.alibaba.datax.common.util.RetryUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.kudu.client.*;
 import org.slf4j.Logger;
@@ -27,11 +28,13 @@ public class KuduWriterTask {
     public String insertMode;
     public Double batchSize;
     public long mutationBufferSpace;
-    public boolean isUpsert;
+    public Boolean isUpsert;
+    public Boolean isSkipFail;
 
     public KuduClient kuduClient;
     public KuduTable table;
-    KuduSession session;
+    public KuduSession session;
+    private Integer primaryKeyIndexUntil;
 
 
     public KuduWriterTask(com.alibaba.datax.common.util.Configuration configuration) {
@@ -47,6 +50,7 @@ public class KuduWriterTask {
         this.session = kuduClient.newSession();
         session.setFlushMode(SessionConfiguration.FlushMode.MANUAL_FLUSH);
         session.setMutationBufferSpace((int) mutationBufferSpace);
+        this.primaryKeyIndexUntil = Kudu11xHelper.getPrimaryKeyIndexUntil(columns);
 //        tableName = configuration.getString(Key.TABLE);
     }
 
@@ -56,20 +60,18 @@ public class KuduWriterTask {
         try {
             while ((record = lineReceiver.getFromReader()) != null) {
                 if (record.getColumnNumber() != columns.size()) {
-                    throw DataXException.asDataXException(Kudu11xWriterErrorcode.PARAMETER_NUM_ERROR, "读出字段个数:" + record.getColumnNumber() + " " + "配置字段个数:" + columns.size());
+                    throw DataXException.asDataXException(Kudu11xWriterErrorcode.PARAMETER_NUM_ERROR, " number of record fields:" + record.getColumnNumber() + " number of configuration fields:" + columns.size());
                 }
                 boolean isDirtyRecord = false;
 
-                for (int i = 0; i < columns.size() && !isDirtyRecord; i++) {
-                    Configuration col = columns.get(i);
-                    if (!col.getBool(Key.PRIMARYKEY, false)) {
-                        break;
-                    }
-                    Column column = record.getColumn(col.getInt(Key.INDEX,i));
-                    isDirtyRecord = (StringUtils.isBlank(column.asString()));
+
+                for (int i = 0; i <= primaryKeyIndexUntil && !isDirtyRecord; i++) {
+                    Column column = record.getColumn(i);
+                    isDirtyRecord = StringUtils.isBlank(column.asString());
                 }
+
                 if (isDirtyRecord) {
-                    taskPluginCollector.collectDirtyRecord(record, "primarykey字段为空");
+                    taskPluginCollector.collectDirtyRecord(record, "primarykey field is null");
                     continue;
                 }
 
@@ -88,7 +90,7 @@ public class KuduWriterTask {
                     Configuration col = columns.get(i);
                     String name = col.getString(Key.NAME);
                     ColumnType type = ColumnType.getByTypeName(col.getString(Key.TYPE));
-                    Column column = record.getColumn(col.getInt(Key.INDEX,i));
+                    Column column = record.getColumn(col.getInt(Key.INDEX, i));
                     Object rawData = column.getRawData();
                     if (rawData == null) {
                         row.setNull(name);
@@ -103,32 +105,41 @@ public class KuduWriterTask {
                         case FLOAT:
                             row.addFloat(name, Float.parseFloat(rawData.toString()));
                             break;
-                        case STRING:
-                            row.addString(name, rawData.toString());
-                            break;
                         case DOUBLE:
                             row.addDouble(name, Double.parseDouble(rawData.toString()));
                             break;
                         case BOOLEAN:
                             row.addBoolean(name, Boolean.getBoolean(rawData.toString()));
                             break;
+                        case STRING:
+                        default:
+                            row.addString(name, rawData.toString());
                     }
                 }
                 try {
-                    if (isUpsert) {
-                        //覆盖更新
-                        session.apply(upsert);
-                    } else {
-                        //增量更新
-                        session.apply(insert);
+                    RetryUtil.executeWithRetry(()->{
+                        if (isUpsert) {
+                            //覆盖更新
+                            session.apply(upsert);
+                        } else {
+                            //增量更新
+                            session.apply(insert);
+                        }
+                        //提前写数据，阈值可自定义
+                        if (counter.incrementAndGet() > batchSize * 0.75) {
+                            session.flush();
+                            counter.set(0L);
+                        }
+                        return true;
+                    },5,2000L,true);
+
+                } catch (Exception e) {
+                    LOG.error("Data write failed!", e);
+                    if (isSkipFail) {
+                        LOG.warn("Because you have configured skipFail is true,this data will be skipped!");
+                    }else {
+                        throw e;
                     }
-                    //提前写数据，阈值可自定义
-                    if (counter.incrementAndGet() > batchSize * 0.75) {
-                        session.flush();
-                        counter.set(0L);
-                    }
-                } catch (KuduException e) {
-                    e.printStackTrace();
                 }
             }
         } catch (Exception e) {
@@ -145,7 +156,7 @@ public class KuduWriterTask {
                 i.decrementAndGet();
             }
         } catch (Exception e) {
-            LOG.info("sesion刷写中" + i + "s .....");
+            LOG.info("Waiting for data to be inserted...... " + i + "s");
             try {
                 Thread.sleep(1000L);
             } catch (InterruptedException ex) {

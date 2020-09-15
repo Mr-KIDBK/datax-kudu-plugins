@@ -6,7 +6,7 @@ package com.q1.datax.plugin.writer.kudu11xwriter;
  **/
 public class Constant {
     public static final String DEFAULT_ENCODING = "UTF-8";
-    public static final String DEFAULT_DATA_FORMAT = "yyyy-MM-dd HH:mm:ss";
+//    public static final String DEFAULT_DATA_FORMAT = "yyyy-MM-dd HH:mm:ss";
 
     public static final String COMPRESSION = "DEFAULT_COMPRESSION";
     public static final String ENCODING = "AUTO_ENCODING";

@@ -38,4 +38,5 @@ public class Key {
     public static  final String WRITE_BATCH_SIZE = "writeBatchSize";
 
     public static  final String MUTATION_BUFFER_SPACE = "mutationBufferSpace";
+    public static  final String SKIP_FAIL = "skipFail";
 }

@@ -57,6 +57,7 @@ public class Kudu11xWriter extends Writer {
     public static class Task extends Writer.Task{
         private Configuration taskConfig;
         private KuduWriterTask kuduTaskProxy;
+        private static final Logger LOG = LoggerFactory.getLogger(Job.class);
         @Override
         public void init() {
             this.taskConfig = super.getPluginJobConf();
@@ -75,7 +76,7 @@ public class Kudu11xWriter extends Writer {
                     kuduTaskProxy.session.close();
                 }
             }catch (Exception e){
-                throw DataXException.asDataXException(Kudu11xWriterErrorcode.CLOSE_KUDU_SESSION_ERROR, e);
+                LOG.warn("kudu session is not gracefully closed !");
             }
             Kudu11xHelper.closeClient(kuduTaskProxy.kuduClient);
 

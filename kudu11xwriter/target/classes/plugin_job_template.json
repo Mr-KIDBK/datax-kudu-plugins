@@ -34,13 +34,13 @@
     },
     "column": [
       {
-        "index": 1,
+        "index": 0,
         "name": "c1",
         "type": "string",
         "primaryKey": true
       },
       {
-        "index": 2,
+        "index": 1,
         "name": "c2",
         "type": "string",
         "compression": "DEFAULT_COMPRESSION",
