@@ -1,28 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ce402995-8102-4d24-bdae-3359e9de9b1c" name="Default Changelist" comment="update">
+    <list default="true" id="ce402995-8102-4d24-bdae-3359e9de9b1c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kudu11xwriter/src/main/java/com/q1/datax/plugin/writer/kudu11xwriter/ColumnType.java" beforeDir="false" afterPath="$PROJECT_DIR$/kudu11xwriter/src/main/java/com/q1/datax/plugin/writer/kudu11xwriter/ColumnType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kudu11xwriter/src/main/java/com/q1/datax/plugin/writer/kudu11xwriter/Constant.java" beforeDir="false" afterPath="$PROJECT_DIR$/kudu11xwriter/src/main/java/com/q1/datax/plugin/writer/kudu11xwriter/Constant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kudu11xwriter/src/main/java/com/q1/datax/plugin/writer/kudu11xwriter/InsertModeType.java" beforeDir="false" afterPath="$PROJECT_DIR$/kudu11xwriter/src/main/java/com/q1/datax/plugin/writer/kudu11xwriter/InsertModeType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kudu11xwriter/src/main/java/com/q1/datax/plugin/writer/kudu11xwriter/Key.java" beforeDir="false" afterPath="$PROJECT_DIR$/kudu11xwriter/src/main/java/com/q1/datax/plugin/writer/kudu11xwriter/Key.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kudu11xwriter/src/main/java/com/q1/datax/plugin/writer/kudu11xwriter/Kudu11xHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/kudu11xwriter/src/main/java/com/q1/datax/plugin/writer/kudu11xwriter/Kudu11xHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kudu11xwriter/src/main/java/com/q1/datax/plugin/writer/kudu11xwriter/Kudu11xWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/kudu11xwriter/src/main/java/com/q1/datax/plugin/writer/kudu11xwriter/Kudu11xWriter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kudu11xwriter/src/main/java/com/q1/datax/plugin/writer/kudu11xwriter/Kudu11xWriterErrorcode.java" beforeDir="false" afterPath="$PROJECT_DIR$/kudu11xwriter/src/main/java/com/q1/datax/plugin/writer/kudu11xwriter/Kudu11xWriterErrorcode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kudu11xwriter/src/main/java/com/q1/datax/plugin/writer/kudu11xwriter/KuduWriterTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/kudu11xwriter/src/main/java/com/q1/datax/plugin/writer/kudu11xwriter/KuduWriterTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kudu11xwriter/src/main/resources/plugin_job_template.json" beforeDir="false" afterPath="$PROJECT_DIR$/kudu11xwriter/src/main/resources/plugin_job_template.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kudu11xwriter/src/test/java/com/dai/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/kudu11xwriter/src/test/java/com/dai/test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kudu11xwriter/target/classes/com/q1/datax/plugin/writer/kudu11xwriter/ColumnType.class" beforeDir="false" afterPath="$PROJECT_DIR$/kudu11xwriter/target/classes/com/q1/datax/plugin/writer/kudu11xwriter/ColumnType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kudu11xwriter/target/classes/com/q1/datax/plugin/writer/kudu11xwriter/Constant.class" beforeDir="false" afterPath="$PROJECT_DIR$/kudu11xwriter/target/classes/com/q1/datax/plugin/writer/kudu11xwriter/Constant.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kudu11xwriter/target/classes/com/q1/datax/plugin/writer/kudu11xwriter/InsertModeType.class" beforeDir="false" afterPath="$PROJECT_DIR$/kudu11xwriter/target/classes/com/q1/datax/plugin/writer/kudu11xwriter/InsertModeType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kudu11xwriter/target/classes/com/q1/datax/plugin/writer/kudu11xwriter/Key.class" beforeDir="false" afterPath="$PROJECT_DIR$/kudu11xwriter/target/classes/com/q1/datax/plugin/writer/kudu11xwriter/Key.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kudu11xwriter/target/classes/com/q1/datax/plugin/writer/kudu11xwriter/Kudu11xHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/kudu11xwriter/target/classes/com/q1/datax/plugin/writer/kudu11xwriter/Kudu11xHelper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kudu11xwriter/target/classes/com/q1/datax/plugin/writer/kudu11xwriter/Kudu11xWriter$Task.class" beforeDir="false" afterPath="$PROJECT_DIR$/kudu11xwriter/target/classes/com/q1/datax/plugin/writer/kudu11xwriter/Kudu11xWriter$Task.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kudu11xwriter/target/classes/com/q1/datax/plugin/writer/kudu11xwriter/KuduWriterTask$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/kudu11xwriter/target/classes/com/q1/datax/plugin/writer/kudu11xwriter/KuduWriterTask$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kudu11xwriter/target/classes/com/q1/datax/plugin/writer/kudu11xwriter/KuduWriterTask.class" beforeDir="false" afterPath="$PROJECT_DIR$/kudu11xwriter/target/classes/com/q1/datax/plugin/writer/kudu11xwriter/KuduWriterTask.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kudu11xwriter/target/classes/plugin_job_template.json" beforeDir="false" afterPath="$PROJECT_DIR$/kudu11xwriter/target/classes/plugin_job_template.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kudu11xwriter/target/test-classes/com/dai/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/kudu11xwriter/target/test-classes/com/dai/test.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,6 +122,7 @@
       <workItem from="1598518386882" duration="89044000" />
       <workItem from="1599016529048" duration="5995000" />
       <workItem from="1600156158448" duration="16684000" />
+      <workItem from="1600174506451" duration="759000" />
     </task>
     <task id="LOCAL-00001" summary="readme update">
       <created>1598959361333</created>
@@ -163,7 +145,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600156207344</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="update">
+      <created>1600174594535</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1600174594535</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,10 +168,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="721" y="162" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600171002479" />
-    <state x="489" y="29" width="1319" height="1011" key="CommitChangelistDialog2" timestamp="1600174303221">
+    <state x="489" y="29" width="1319" height="1011" key="CommitChangelistDialog2" timestamp="1600174592038">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="489" y="29" width="1319" height="1011" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600174303221" />
+    <state x="489" y="29" width="1319" height="1011" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600174592038" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1598959510443">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -191,6 +180,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="218" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598963339126" />
+    <state x="787" y="428" key="Github.Dialog.Accounts.Choose" timestamp="1600174643142">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="787" y="428" key="Github.Dialog.Accounts.Choose/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600174643142" />
     <state x="794" y="387" key="Github.ShareDialog" timestamp="1598958691946">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -223,10 +216,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="614" y="198" width="681" height="655" key="StructurePopup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600167697366" />
-    <state x="452" y="188" key="Vcs.Push.Dialog.v2" timestamp="1598963115885">
+    <state x="452" y="188" key="Vcs.Push.Dialog.v2" timestamp="1600174628572">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="452" y="188" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598963115885" />
+    <state x="452" y="188" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600174628572" />
     <state x="719" y="417" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1598958999737">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -235,10 +228,10 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="1912" y="-8" width="1448" height="985" maximized="true" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600174573374" />
-    <state x="385" y="-27" width="1448" height="985" key="dock-window-2" timestamp="1600174573374">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="1608" y="-27" width="1448" height="985" key="dock-window-2" timestamp="1600174866657">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="385" y="-27" width="1448" height="985" key="dock-window-2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600174573374" />
+    <state x="1608" y="-27" width="1448" height="985" key="dock-window-2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600174866657" />
     <state x="574" y="193" width="958" height="654" key="find.popup" timestamp="1598527218353">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
