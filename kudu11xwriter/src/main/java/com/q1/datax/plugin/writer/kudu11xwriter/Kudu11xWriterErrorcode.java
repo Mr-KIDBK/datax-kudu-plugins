@@ -27,7 +27,7 @@ public enum Kudu11xWriterErrorcode implements ErrorCode {
     private final String description;
 
 
-    private Kudu11xWriterErrorcode(String code, String description) {
+    Kudu11xWriterErrorcode(String code, String description) {
         this.code = code;
         this.description = description;
     }
