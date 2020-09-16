@@ -139,6 +139,7 @@ public class KuduWriterTask {
                     LOG.error("Data write failed!", e);
                     if (isSkipFail) {
                         LOG.warn("Because you have configured skipFail is true,this data will be skipped!");
+                        taskPluginCollector.collectDirtyRecord(record, e.getMessage());
                     }else {
                         throw e;
                     }

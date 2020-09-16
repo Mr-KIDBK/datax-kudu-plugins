@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ce402995-8102-4d24-bdae-3359e9de9b1c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kudu11xwriter/src/main/java/com/q1/datax/plugin/writer/kudu11xwriter/Kudu11xWriterErrorcode.java" beforeDir="false" afterPath="$PROJECT_DIR$/kudu11xwriter/src/main/java/com/q1/datax/plugin/writer/kudu11xwriter/Kudu11xWriterErrorcode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kudu11xwriter/src/main/java/com/q1/datax/plugin/writer/kudu11xwriter/KuduWriterTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/kudu11xwriter/src/main/java/com/q1/datax/plugin/writer/kudu11xwriter/KuduWriterTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kudu11xwriter/target/classes/com/q1/datax/plugin/writer/kudu11xwriter/KuduWriterTask.class" beforeDir="false" afterPath="$PROJECT_DIR$/kudu11xwriter/target/classes/com/q1/datax/plugin/writer/kudu11xwriter/KuduWriterTask.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +126,7 @@
       <workItem from="1600174506451" duration="3341000" />
       <workItem from="1600224204728" duration="18000" />
       <workItem from="1600224754216" duration="511000" />
-      <workItem from="1600226597034" duration="12075000" />
+      <workItem from="1600226597034" duration="14521000" />
     </task>
     <task id="LOCAL-00001" summary="readme update">
       <created>1598959361333</created>
@@ -176,7 +177,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600243424738</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="update">
+      <created>1600247073497</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1600247073497</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,10 +204,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="721" y="162" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600171002479" />
-    <state x="489" y="29" width="1319" height="1011" key="CommitChangelistDialog2" timestamp="1600246716583">
+    <state x="489" y="29" width="1319" height="1011" key="CommitChangelistDialog2" timestamp="1600247072577">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="489" y="29" width="1319" height="1011" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600246716583" />
+    <state x="489" y="29" width="1319" height="1011" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600247072577" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1598959510443">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -248,18 +256,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="614" y="198" width="681" height="655" key="StructurePopup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600167697366" />
-    <state x="452" y="188" key="Vcs.Push.Dialog.v2" timestamp="1600246767609">
+    <state x="452" y="188" key="Vcs.Push.Dialog.v2" timestamp="1600247079223">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="452" y="188" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600246767609" />
+    <state x="452" y="188" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600247079223" />
     <state x="719" y="417" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1598958999737">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="719" y="417" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598958999737" />
-    <state x="403" y="-20" width="1452" height="985" key="dock-window-1" timestamp="1600244950331">
+    <state x="403" y="-20" width="1452" height="985" maximized="true" key="dock-window-1" timestamp="1600248172094">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="403" y="-20" width="1452" height="985" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600244950331" />
+    <state x="403" y="-20" width="1452" height="985" maximized="true" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600248172094" />
     <state x="1608" y="-27" width="1448" height="985" key="dock-window-2" timestamp="1600224169759">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
