@@ -10,12 +10,15 @@ eg:
   "name": "kudu11xwriter",
   "parameter": {
     "kuduConfig": {
-      "kudu.master_addresses": "***"
+      "kudu.master_addresses": "***",
+      "timeout": 60000,
+      "sessionTimeout": 60000
+
     },
     "table": "",
-    "numReplicas": 3,
+    "replicaCount": 3,
     "truncate": false,
-    "insertMode": "upsert",
+    "writeMode": "upsert",
     "partition": {
       "range": {
         "column1": [
@@ -37,7 +40,7 @@ eg:
         "column": [
           "column1"
         ],
-        "num": 3
+        "number": 3
       }
     },
     "column": [
@@ -51,13 +54,14 @@ eg:
         "index": 1,
         "name": "c2",
         "type": "string",
-        "compression": "DEFAULT_COMPRESSION",
+        "compress": "DEFAULT_COMPRESSION",
         "encoding": "AUTO_ENCODING",
         "comment": "注解xxxx"
       }
     ],
-    "writeBufferSize": 1024,
-    "mutationBufferSpace": 2048,
+    "batchSize": 1024,
+    "bufferSize": 2048,
+    "skipFail": false,
     "encoding": "UTF-8"
   }
 }
@@ -111,9 +115,9 @@ eg:
 | partition           |                     | 分区                                                         | 否       |
 | column              |                     | 列                                                           | 是       |
 | name                |                     | 列名                                                         | 是       |
-| type                |                     | 列的类型                                                     | 是       |
+| type                |                     | 列的类型，现支持INT, FLOAT, STRING, BIGINT, DOUBLE, BOOLEAN, LONG。 | 是       |
 | index               | 升序排列            | 列索引位置，如reader中取到的某一字段在第二位置（eg： name， id， age）但kudu目标表结构不同（eg：id，name， age），此时就需要将index赋值为（1，0，2），默认顺序（0，1，2） | 否       |
-| primaryKey          | false               | 是否为主键（请将所有的主键列写在前面）                       | 否       |
+| primaryKey          | false               | 是否为主键（请将所有的主键列写在前面）,不表明主键将不会检查过滤脏数据 | 否       |
 | compression         | DEFAULT_COMPRESSION | 压缩格式                                                     | 否       |
 | encoding            | AUTO_ENCODING       | 编码                                                         | 否       |
 | numReplicas         | 3                   | 保留副本个数                                                 | 否       |
@@ -124,8 +128,13 @@ eg:
 | upper               |                     | range分区上限(eg: sql建表：partition "10" <= VALUES < "20"                                                                     对应：“lower”：“10”，“upper”：“20”) | 否       |
 | truncate            | false               | 是否清空表，本质上是删表重建                                 | 否       |
 | insertMode          | upsert              | upsert，insert，update                                       | 否       |
-| writeBatchSize      | 512                 | 每xx行数据flush一次结果（最好不要超过1024）                  |          |
-| mutationBufferSpace | 3072                | 缓冲区大小                                                   |          |
+| writeBatchSize      | 512                 | 每xx行数据flush一次结果（最好不要超过1024）                  | 否       |
+| mutationBufferSpace | 3072                | 缓冲区大小                                                   | 否       |
+| skipFail            | false               | 是否跳过插入不成功的数据                                     | 否       |
+| timeout             | 60000               | client超时时间,如创建表，删除表操作的超时时间。单位：ms      | 否       |
+| sessionTimeout      | 60000               | session超时时间 单位：ms                                     | 否       |
+
+
 
 
 

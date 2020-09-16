@@ -3,13 +3,27 @@
   <component name="ChangeListManager">
     <list default="true" id="ce402995-8102-4d24-bdae-3359e9de9b1c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kudu11xwriter/src/main/java/com/q1/datax/plugin/writer/kudu11xwriter/Constant.java" beforeDir="false" afterPath="$PROJECT_DIR$/kudu11xwriter/src/main/java/com/q1/datax/plugin/writer/kudu11xwriter/Constant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kudu11xwriter/src/main/java/com/q1/datax/plugin/writer/kudu11xwriter/Kudu11xHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/kudu11xwriter/src/main/java/com/q1/datax/plugin/writer/kudu11xwriter/Kudu11xHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kudu11xwriter/src/main/resources/plugin_job_template.json" beforeDir="false" afterPath="$PROJECT_DIR$/kudu11xwriter/src/main/resources/plugin_job_template.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kudu11xwriter/target/classes/com/q1/datax/plugin/writer/kudu11xwriter/Constant.class" beforeDir="false" afterPath="$PROJECT_DIR$/kudu11xwriter/target/classes/com/q1/datax/plugin/writer/kudu11xwriter/Constant.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kudu11xwriter/target/classes/com/q1/datax/plugin/writer/kudu11xwriter/Kudu11xHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/kudu11xwriter/target/classes/com/q1/datax/plugin/writer/kudu11xwriter/Kudu11xHelper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kudu11xwriter/target/classes/com/q1/datax/plugin/writer/kudu11xwriter/KuduWriterTask.class" beforeDir="false" afterPath="$PROJECT_DIR$/kudu11xwriter/target/classes/com/q1/datax/plugin/writer/kudu11xwriter/KuduWriterTask.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kudu11xwriter/target/classes/plugin_job_template.json" beforeDir="false" afterPath="$PROJECT_DIR$/kudu11xwriter/target/classes/plugin_job_template.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kudu11xwriter/target/datax/plugin/writer/kudu11xwriter/kudu11xwriter-0.0.1-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kudu11xwriter/target/datax/plugin/writer/kudu11xwriter/libs/async-1.4.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kudu11xwriter/target/datax/plugin/writer/kudu11xwriter/libs/commons-io-2.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kudu11xwriter/target/datax/plugin/writer/kudu11xwriter/libs/commons-lang3-3.3.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kudu11xwriter/target/datax/plugin/writer/kudu11xwriter/libs/commons-math3-3.1.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kudu11xwriter/target/datax/plugin/writer/kudu11xwriter/libs/datax-common-0.0.1-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kudu11xwriter/target/datax/plugin/writer/kudu11xwriter/libs/fastjson-1.1.46.sec01.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kudu11xwriter/target/datax/plugin/writer/kudu11xwriter/libs/hamcrest-core-1.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kudu11xwriter/target/datax/plugin/writer/kudu11xwriter/libs/kudu-client-1.11.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kudu11xwriter/target/datax/plugin/writer/kudu11xwriter/libs/logback-classic-1.0.13.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kudu11xwriter/target/datax/plugin/writer/kudu11xwriter/libs/logback-core-1.0.13.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kudu11xwriter/target/datax/plugin/writer/kudu11xwriter/libs/slf4j-api-1.7.26.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kudu11xwriter/target/datax/plugin/writer/kudu11xwriter/plugin.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kudu11xwriter/target/datax/plugin/writer/kudu11xwriter/plugin_job_template.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kudu11xwriter/target/kudu11xwriter-0.0.1-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kudu11xwriter/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kudu11xwriter/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kudu11xwriter/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kudu11xwriter/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kudu11xwriter/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +87,7 @@
     <property name="last.edited.regexp" value="Sample Text" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/kudu11xwriter/src/main" />
     <property name="scala_project_settings_configurable.last_selected_tab_index" value="0" />
-    <property name="settings.editor.selected.configurable" value="yiiguxing.plugin.translate" />
+    <property name="settings.editor.selected.configurable" value="http.proxy" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -131,7 +145,7 @@
       <workItem from="1600174506451" duration="3341000" />
       <workItem from="1600224204728" duration="18000" />
       <workItem from="1600224754216" duration="511000" />
-      <workItem from="1600226597034" duration="8711000" />
+      <workItem from="1600226597034" duration="11612000" />
     </task>
     <task id="LOCAL-00001" summary="readme update">
       <created>1598959361333</created>
@@ -175,7 +189,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600242844183</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="update">
+      <created>1600243424738</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1600243424738</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -195,10 +216,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="721" y="162" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600171002479" />
-    <state x="489" y="29" width="1319" height="1011" key="CommitChangelistDialog2" timestamp="1600242842546">
+    <state x="489" y="29" width="1319" height="1011" key="CommitChangelistDialog2" timestamp="1600244978040">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="489" y="29" width="1319" height="1011" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600242842546" />
+    <state x="489" y="29" width="1319" height="1011" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600244978040" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1598959510443">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -215,50 +236,50 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="794" y="387" key="Github.ShareDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598958691946" />
-    <state width="1867" height="330" key="GridCell.Tab.0.bottom" timestamp="1600174305248">
+    <state width="1867" height="332" key="GridCell.Tab.0.bottom" timestamp="1600245716372">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1867" height="330" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600174305248" />
+    <state width="1867" height="332" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600245716372" />
     <state width="1865" height="333" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599015302993" />
-    <state width="1867" height="330" key="GridCell.Tab.0.center" timestamp="1600174305248">
+    <state width="1867" height="332" key="GridCell.Tab.0.center" timestamp="1600245716372">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1867" height="330" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600174305248" />
+    <state width="1867" height="332" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600245716372" />
     <state width="1865" height="333" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599015302993" />
-    <state width="1867" height="330" key="GridCell.Tab.0.left" timestamp="1600174305248">
+    <state width="1867" height="332" key="GridCell.Tab.0.left" timestamp="1600245716372">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1867" height="330" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600174305248" />
+    <state width="1867" height="332" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600245716372" />
     <state width="1865" height="333" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599015302992" />
-    <state width="1867" height="330" key="GridCell.Tab.0.right" timestamp="1600174305248">
+    <state width="1867" height="332" key="GridCell.Tab.0.right" timestamp="1600245716372">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1867" height="330" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600174305248" />
+    <state width="1867" height="332" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600245716372" />
     <state width="1865" height="333" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599015302993" />
     <state x="440" y="193" key="IDE.errors.dialog" timestamp="1600236659079">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="193" key="IDE.errors.dialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600236659079" />
-    <state x="345" y="78" key="SettingsEditor" timestamp="1600229737164">
+    <state x="345" y="78" key="SettingsEditor" timestamp="1600243825293">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="345" y="78" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600229737164" />
+    <state x="345" y="78" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600243825293" />
     <state x="614" y="198" width="681" height="655" key="StructurePopup" timestamp="1600167697366">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="614" y="198" width="681" height="655" key="StructurePopup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600167697366" />
-    <state x="452" y="188" key="Vcs.Push.Dialog.v2" timestamp="1600242852272">
+    <state x="452" y="188" key="Vcs.Push.Dialog.v2" timestamp="1600245161034">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="452" y="188" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600242852272" />
+    <state x="452" y="188" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600245161034" />
     <state x="719" y="417" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1598958999737">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="719" y="417" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598958999737" />
-    <state x="1437" y="-20" width="1452" height="985" maximized="true" key="dock-window-1" timestamp="1600242834101">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="403" y="-20" width="1452" height="985" key="dock-window-1" timestamp="1600244950331">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1437" y="-20" width="1452" height="985" maximized="true" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600242834101" />
+    <state x="403" y="-20" width="1452" height="985" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600244950331" />
     <state x="1608" y="-27" width="1448" height="985" key="dock-window-2" timestamp="1600224169759">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
