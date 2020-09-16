@@ -2,12 +2,15 @@
   "name": "kudu11xwriter",
   "parameter": {
     "kuduConfig": {
-      "kudu.master_addresses": "***"
+      "kudu.master_addresses": "***",
+      "timeout": 60000,
+      "sessionTimeout": 60000
+
     },
     "table": "",
-    "numReplicas": 3,
+    "replicaCount": 3,
     "truncate": false,
-    "insertMode": "upsert",
+    "writeMode": "upsert",
     "partition": {
       "range": {
         "column1": [
@@ -43,13 +46,14 @@
         "index": 1,
         "name": "c2",
         "type": "string",
-        "compression": "DEFAULT_COMPRESSION",
+        "compress": "DEFAULT_COMPRESSION",
         "encoding": "AUTO_ENCODING",
         "comment": "注解xxxx"
       }
     ],
-    "writeBufferSize": 1024,
-    "mutationBufferSpace": 2048,
+    "batchSize": 1024,
+    "bufferSize": 2048,
+    "skipFail": false,
     "encoding": "UTF-8"
   }
 }

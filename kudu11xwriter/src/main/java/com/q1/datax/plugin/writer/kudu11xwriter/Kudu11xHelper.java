@@ -25,12 +25,12 @@ public class Kudu11xHelper {
 
     private static final Logger LOG = LoggerFactory.getLogger(Kudu11xHelper.class);
 
-    public static Map getKuduConfiguration(String kuduConfig) {
+    public static Map<String, Object> getKuduConfiguration(String kuduConfig) {
         if (StringUtils.isBlank(kuduConfig)) {
             throw DataXException.asDataXException(Kudu11xWriterErrorcode.REQUIRED_VALUE,
                     "Connection configuration information required.");
         }
-        Map<String, String> kConfiguration;
+        Map<String, Object> kConfiguration;
         try {
             kConfiguration = JSON.parseObject(kuduConfig, HashMap.class);
             Validate.isTrue(kConfiguration != null, "kuduConfig is null!");
@@ -44,13 +44,13 @@ public class Kudu11xHelper {
     }
 
     public static KuduClient getKuduClient(String kuduConfig) {
-        Map<String, String> conf = Kudu11xHelper.getKuduConfiguration(kuduConfig);
+        Map<String, Object> conf = Kudu11xHelper.getKuduConfiguration(kuduConfig);
         KuduClient kuduClient = null;
         try {
-            String masterAddress = conf.get(Key.KUDU_MASTER);
+            String masterAddress = (String)conf.get(Key.KUDU_MASTER);
             kuduClient = new KuduClient.KuduClientBuilder(masterAddress)
-                    .defaultAdminOperationTimeoutMs(Long.parseLong(conf.get(Key.KUDU_ADMIN_TIMEOUT)))
-                    .defaultOperationTimeoutMs(Long.parseLong(conf.get(Key.KUDU_SESSION_TIMEOUT)))
+                    .defaultAdminOperationTimeoutMs((Long) conf.get(Key.KUDU_ADMIN_TIMEOUT))
+                    .defaultOperationTimeoutMs((Long)conf.get(Key.KUDU_SESSION_TIMEOUT))
                     .build();
         } catch (Exception e) {
             throw DataXException.asDataXException(Kudu11xWriterErrorcode.GET_KUDU_CONNECTION_ERROR, e);
