@@ -34,6 +34,8 @@ public class Kudu11xHelper {
         try {
             kConfiguration = JSON.parseObject(kuduConfig, HashMap.class);
             Validate.isTrue(kConfiguration != null, "kuduConfig is null!");
+            kConfiguration.put(Key.KUDU_ADMIN_TIMEOUT, kConfiguration.getOrDefault(Key.KUDU_ADMIN_TIMEOUT, Constant.ADMIN_TIMEOUTMS));
+            kConfiguration.put(Key.KUDU_SESSION_TIMEOUT, kConfiguration.getOrDefault(Key.KUDU_SESSION_TIMEOUT, Constant.SESSION_TIMEOUTMS));
         } catch (Exception e) {
             throw DataXException.asDataXException(Kudu11xWriterErrorcode.GET_KUDU_CONNECTION_ERROR, e);
         }
@@ -45,8 +47,10 @@ public class Kudu11xHelper {
         Map<String, String> conf = Kudu11xHelper.getKuduConfiguration(kuduConfig);
         KuduClient kuduClient = null;
         try {
-            String masterAddress = conf.get("kudu.master_addresses");
+            String masterAddress = conf.get(Key.KUDU_MASTER);
             kuduClient = new KuduClient.KuduClientBuilder(masterAddress)
+                    .defaultAdminOperationTimeoutMs(Long.parseLong(conf.get(Key.KUDU_ADMIN_TIMEOUT)))
+                    .defaultOperationTimeoutMs(Long.parseLong(conf.get(Key.KUDU_SESSION_TIMEOUT)))
                     .build();
         } catch (Exception e) {
             throw DataXException.asDataXException(Kudu11xWriterErrorcode.GET_KUDU_CONNECTION_ERROR, e);
@@ -109,9 +113,9 @@ public class Kudu11xHelper {
                         LOG.info("Table "+ tableName +" is created!");
                         break;
                     }
-                    Thread.sleep(1000L);
                     i.decrementAndGet();
-                } catch (Exception e) {
+                    LOG.error("timeout!");
+                } catch (KuduException  e) {
                     LOG.info("Wait for the table to be created..... "+i);
                     try {
                         Thread.sleep(1000L);
@@ -167,8 +171,9 @@ public class Kudu11xHelper {
             for (Configuration column : columns) {
 
                 String type = "BIGINT".equals(column.getNecessaryValue(Key.TYPE, Kudu11xWriterErrorcode.REQUIRED_VALUE).toUpperCase()) ||
-                        "INT".equals(column.getNecessaryValue(Key.TYPE, Kudu11xWriterErrorcode.REQUIRED_VALUE).toUpperCase()) ?
-                        "INT64" : column.getNecessaryValue(Key.TYPE, Kudu11xWriterErrorcode.REQUIRED_VALUE).toUpperCase();
+                        "LONG".equals(column.getNecessaryValue(Key.TYPE, Kudu11xWriterErrorcode.REQUIRED_VALUE).toUpperCase()) ?
+                        "INT64" : "INT".equals(column.getNecessaryValue(Key.TYPE, Kudu11xWriterErrorcode.REQUIRED_VALUE).toUpperCase())?
+                        "INT32":column.getNecessaryValue(Key.TYPE, Kudu11xWriterErrorcode.REQUIRED_VALUE).toUpperCase();
                 String name = column.getNecessaryValue(Key.NAME, Kudu11xWriterErrorcode.REQUIRED_VALUE);
                 Boolean key = column.getBool(Key.PRIMARYKEY, false);
                 String encoding = column.getString(Key.ENCODING, Constant.ENCODING).toUpperCase();

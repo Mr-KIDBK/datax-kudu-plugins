@@ -98,6 +98,8 @@ public class KuduWriterTask {
                     }
                     switch (type) {
                         case INT:
+                            row.addInt(name, Integer.parseInt(rawData.toString()));
+                            break;
                         case LONG:
                         case BIGINT:
                             row.addLong(name, Long.parseLong(rawData.toString()));
@@ -131,7 +133,7 @@ public class KuduWriterTask {
                             counter.set(0L);
                         }
                         return true;
-                    },5,2000L,true);
+                    },5,1000L,true);
 
                 } catch (Exception e) {
                     LOG.error("Data write failed!", e);

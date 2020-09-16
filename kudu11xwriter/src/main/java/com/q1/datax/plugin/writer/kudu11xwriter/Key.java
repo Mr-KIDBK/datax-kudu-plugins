@@ -6,6 +6,9 @@ package com.q1.datax.plugin.writer.kudu11xwriter;
  **/
 public class Key {
     public final static String KUDU_CONFIG = "kuduConfig";
+    public final static String KUDU_MASTER = "kudu.master_addresses";
+    public final static String KUDU_ADMIN_TIMEOUT = "timeout";
+    public final static String KUDU_SESSION_TIMEOUT = "sessionTimeout";
 
     public final static String TABLE = "table";
     public final static String PARTITION = "partition";

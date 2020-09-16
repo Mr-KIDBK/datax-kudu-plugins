@@ -10,6 +10,9 @@ public class Constant {
 
     public static final String COMPRESSION = "DEFAULT_COMPRESSION";
     public static final String ENCODING = "AUTO_ENCODING";
+    public static final String ADMIN_TIMEOUTMS = "60000";
+    public static final String SESSION_TIMEOUTMS = "60000";
+
 
     public static final String INSERT_MODE = "upsert";
     public static final long DEFAULT_WRITE_BATCH_SIZE = 512L;
