@@ -108,31 +108,31 @@ eg:
 
 ##### 配置列表
 
-| name                | default             | description                                                  | 是否必须 |
-| ------------------- | ------------------- | ------------------------------------------------------------ | -------- |
-| kuduConfig          |                     | kudu配置 （kudu.master_addresses等）                         | 是       |
-| table               |                     | 导入目标表名                                                 | 是       |
-| partition           |                     | 分区                                                         | 否       |
-| column              |                     | 列                                                           | 是       |
-| name                |                     | 列名                                                         | 是       |
-| type                |                     | 列的类型，现支持INT, FLOAT, STRING, BIGINT, DOUBLE, BOOLEAN, LONG。 | 是       |
-| index               | 升序排列            | 列索引位置，如reader中取到的某一字段在第二位置（eg： name， id， age）但kudu目标表结构不同（eg：id，name， age），此时就需要将index赋值为（1，0，2），默认顺序（0，1，2） | 否       |
-| primaryKey          | false               | 是否为主键（请将所有的主键列写在前面）,不表明主键将不会检查过滤脏数据 | 否       |
-| compression         | DEFAULT_COMPRESSION | 压缩格式                                                     | 否       |
-| encoding            | AUTO_ENCODING       | 编码                                                         | 否       |
-| numReplicas         | 3                   | 保留副本个数                                                 | 否       |
-| hash                |                     | hash分区                                                     | 否       |
-| num                 | 3                   | hash分区个数                                                 | 否       |
-| range               |                     | range分区                                                    | 否       |
-| lower               |                     | range分区下限 (eg: sql建表：partition value='haha' 对应：“lower”：“haha”，“upper”：“haha\000”) | 否       |
-| upper               |                     | range分区上限(eg: sql建表：partition "10" <= VALUES < "20"                                                                     对应：“lower”：“10”，“upper”：“20”) | 否       |
-| truncate            | false               | 是否清空表，本质上是删表重建                                 | 否       |
-| insertMode          | upsert              | upsert，insert，update                                       | 否       |
-| writeBatchSize      | 512                 | 每xx行数据flush一次结果（最好不要超过1024）                  | 否       |
-| mutationBufferSpace | 3072                | 缓冲区大小                                                   | 否       |
-| skipFail            | false               | 是否跳过插入不成功的数据                                     | 否       |
-| timeout             | 60000               | client超时时间,如创建表，删除表操作的超时时间。单位：ms      | 否       |
-| sessionTimeout      | 60000               | session超时时间 单位：ms                                     | 否       |
+| name           | default             | description                                                  | 是否必须 |
+| -------------- | ------------------- | ------------------------------------------------------------ | -------- |
+| kuduConfig     |                     | kudu配置 （kudu.master_addresses等）                         | 是       |
+| table          |                     | 导入目标表名                                                 | 是       |
+| partition      |                     | 分区                                                         | 否       |
+| column         |                     | 列                                                           | 是       |
+| name           |                     | 列名                                                         | 是       |
+| type           |                     | 列的类型，现支持INT, FLOAT, STRING, BIGINT, DOUBLE, BOOLEAN, LONG。 | 是       |
+| index          | 升序排列            | 列索引位置，如reader中取到的某一字段在第二位置（eg： name， id， age）但kudu目标表结构不同（eg：id，name， age），此时就需要将index赋值为（1，0，2），默认顺序（0，1，2） | 否       |
+| primaryKey     | false               | 是否为主键（请将所有的主键列写在前面）,不表明主键将不会检查过滤脏数据 | 否       |
+| compress       | DEFAULT_COMPRESSION | 压缩格式                                                     | 否       |
+| encoding       | AUTO_ENCODING       | 编码                                                         | 否       |
+| replicaCount   | 3                   | 保留副本个数                                                 | 否       |
+| hash           |                     | hash分区                                                     | 否       |
+| number         | 3                   | hash分区个数                                                 | 否       |
+| range          |                     | range分区                                                    | 否       |
+| lower          |                     | range分区下限 (eg: sql建表：partition value='haha' 对应：“lower”：“haha”，“upper”：“haha\000”) | 否       |
+| upper          |                     | range分区上限(eg: sql建表：partition "10" <= VALUES < "20"                                                                     对应：“lower”：“10”，“upper”：“20”) | 否       |
+| truncate       | false               | 是否清空表，本质上是删表重建                                 | 否       |
+| writeMode      | upsert              | upsert，insert，update                                       | 否       |
+| batchSize      | 512                 | 每xx行数据flush一次结果（最好不要超过1024）                  | 否       |
+| bufferSize     | 3072                | 缓冲区大小                                                   | 否       |
+| skipFail       | false               | 是否跳过插入不成功的数据                                     | 否       |
+| timeout        | 60000               | client超时时间,如创建表，删除表操作的超时时间。单位：ms      | 否       |
+| sessionTimeout | 60000               | session超时时间 单位：ms                                     | 否       |
 
 
 
@@ -141,5 +141,3 @@ eg:
 
 
 
-
-bug、问题交流请联系QQ:912456357
