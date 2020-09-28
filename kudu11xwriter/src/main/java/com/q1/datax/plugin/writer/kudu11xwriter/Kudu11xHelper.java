@@ -268,6 +268,7 @@ public class Kudu11xHelper {
 
         Boolean isSkipFail = configuration.getBool(Key.SKIP_FAIL, false);
         configuration.set(Key.SKIP_FAIL, isSkipFail);
+        LOG.info("==validate parameter complete！");
     }
 
     public static void truncateTable(Configuration configuration) {
