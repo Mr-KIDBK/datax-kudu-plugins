@@ -3,14 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ce402995-8102-4d24-bdae-3359e9de9b1c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kudu11xwriter/kudu11xwriter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/kudu11xwriter/kudu11xwriter.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kudu11xwriter/src/main/java/com/q1/datax/plugin/writer/kudu11xwriter/Kudu11xHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/kudu11xwriter/src/main/java/com/q1/datax/plugin/writer/kudu11xwriter/Kudu11xHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kudu11xwriter/src/main/java/com/q1/datax/plugin/writer/kudu11xwriter/Kudu11xWriterErrorcode.java" beforeDir="false" afterPath="$PROJECT_DIR$/kudu11xwriter/src/main/java/com/q1/datax/plugin/writer/kudu11xwriter/Kudu11xWriterErrorcode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kudu11xwriter/src/main/java/com/q1/datax/plugin/writer/kudu11xwriter/KuduWriterTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/kudu11xwriter/src/main/java/com/q1/datax/plugin/writer/kudu11xwriter/KuduWriterTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kudu11xwriter/src/test/java/com/dai/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/kudu11xwriter/src/test/java/com/dai/test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kudu11xwriter/target/classes/plugin.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kudu11xwriter/target/classes/plugin_job_template.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kudu11xwriter/target/test-classes/com/dai/test.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +155,7 @@
       <workItem from="1600224754216" duration="511000" />
       <workItem from="1600226597034" duration="18030000" />
       <workItem from="1600670876471" duration="13899000" />
-      <workItem from="1601256422377" duration="4077000" />
+      <workItem from="1601256422377" duration="9992000" />
     </task>
     <task id="LOCAL-00001" summary="readme update">
       <created>1598959361333</created>
@@ -234,7 +227,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600672601281</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="update">
+      <created>1601261441041</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1601261441041</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -258,10 +258,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="721" y="162" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600171002479" />
-    <state x="2409" y="29" width="1319" height="1011" key="CommitChangelistDialog2" timestamp="1600672600415">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="489" y="29" width="1319" height="1011" key="CommitChangelistDialog2" timestamp="1601261438685">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="489" y="29" width="1319" height="1011" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600249702710" />
+    <state x="489" y="29" width="1319" height="1011" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601261438685" />
     <state x="2409" y="29" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1600672600415" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1598959510443">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -279,25 +279,25 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="794" y="387" key="Github.ShareDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598958691946" />
-    <state width="1867" height="311" key="GridCell.Tab.0.bottom" timestamp="1601261417211">
+    <state width="1867" height="311" key="GridCell.Tab.0.bottom" timestamp="1601265631004">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1867" height="311" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601261417211" />
+    <state width="1867" height="311" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601265631004" />
     <state width="1865" height="333" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599015302993" />
-    <state width="1867" height="311" key="GridCell.Tab.0.center" timestamp="1601261417211">
+    <state width="1867" height="311" key="GridCell.Tab.0.center" timestamp="1601265631004">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1867" height="311" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601261417211" />
+    <state width="1867" height="311" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601265631004" />
     <state width="1865" height="333" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599015302993" />
-    <state width="1867" height="311" key="GridCell.Tab.0.left" timestamp="1601261417211">
+    <state width="1867" height="311" key="GridCell.Tab.0.left" timestamp="1601265631003">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1867" height="311" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601261417211" />
+    <state width="1867" height="311" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601265631003" />
     <state width="1865" height="333" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599015302992" />
-    <state width="1867" height="311" key="GridCell.Tab.0.right" timestamp="1601261417211">
+    <state width="1867" height="311" key="GridCell.Tab.0.right" timestamp="1601265631004">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1867" height="311" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601261417211" />
+    <state width="1867" height="311" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601265631004" />
     <state width="1865" height="333" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599015302993" />
     <state x="440" y="193" key="IDE.errors.dialog" timestamp="1600236659079">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -311,10 +311,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="614" y="198" width="681" height="655" key="StructurePopup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600167697366" />
-    <state x="452" y="188" key="Vcs.Push.Dialog.v2" timestamp="1600313403915">
+    <state x="452" y="188" key="Vcs.Push.Dialog.v2" timestamp="1601261450274">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="452" y="188" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600313403915" />
+    <state x="452" y="188" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601261450274" />
     <state x="719" y="417" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1598958999737">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

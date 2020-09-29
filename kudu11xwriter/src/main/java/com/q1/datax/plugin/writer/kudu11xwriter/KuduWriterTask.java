@@ -70,7 +70,7 @@ public class KuduWriterTask {
                 boolean isDirtyRecord = false;
 
 
-                for (int i = 0; i <= primaryKeyIndexUntil && !isDirtyRecord; i++) {
+                for (int i = 0; i < primaryKeyIndexUntil && !isDirtyRecord; i++) {
                     Column column = record.getColumn(i);
                     isDirtyRecord = StringUtils.isBlank(column.asString());
                 }
