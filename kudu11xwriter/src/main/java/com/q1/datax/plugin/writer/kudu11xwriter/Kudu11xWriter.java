@@ -38,7 +38,7 @@ public class Kudu11xWriter extends Writer {
 
         @Override
         public List<Configuration> split(int i) {
-            List<Configuration> splitResultConfigs = new ArrayList<Configuration>();
+            List<Configuration> splitResultConfigs = new ArrayList<>();
             for (int j = 0; j < i; j++) {
                 splitResultConfigs.add(config.clone());
             }
@@ -65,6 +65,7 @@ public class Kudu11xWriter extends Writer {
         }
         @Override
         public void startWrite(RecordReceiver lineReceiver) {
+            LOG.info("-----THREAD:"+Thread.currentThread().getName());
             this.kuduTaskProxy.startWriter(lineReceiver,super.getTaskPluginCollector());
         }
 

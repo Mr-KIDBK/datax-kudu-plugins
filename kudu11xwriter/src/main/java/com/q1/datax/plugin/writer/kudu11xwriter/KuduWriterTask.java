@@ -13,11 +13,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.List;
+import java.util.concurrent.Callable;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
+import java.util.concurrent.atomic.LongAdder;
 
 /**
  * @author daizihao
@@ -59,9 +61,9 @@ public class KuduWriterTask {
     }
 
     public void startWriter(RecordReceiver lineReceiver, TaskPluginCollector taskPluginCollector) {
-        LOG.info("==kuduwriter began to write!");
+        LOG.info("--kuduwriter began to write!");
         Record record;
-        AtomicLong counter = new AtomicLong(0L);
+        LongAdder counter = new LongAdder();
         try {
             while ((record = lineReceiver.getFromReader()) != null) {
                 if (record.getColumnNumber() != columns.size()) {
@@ -82,49 +84,50 @@ public class KuduWriterTask {
 
                 Upsert upsert = table.newUpsert();
                 Insert insert = table.newInsert();
+                PartialRow row;
+                if (isUpsert) {
+                    //覆盖更新
+                    row = upsert.getRow();
+                } else {
+                    //增量更新
+                    row = insert.getRow();
+                }
 
                 for (int i = 0; i < columns.size(); i++) {
-                    PartialRow row;
-                    if (isUpsert) {
-                        //覆盖更新
-                        row = upsert.getRow();
-                    } else {
-                        //增量更新
-                        row = insert.getRow();
-                    }
+
                     Configuration col = columns.get(i);
                     String name = col.getString(Key.NAME);
                     ColumnType type = ColumnType.getByTypeName(col.getString(Key.TYPE));
                     Column column = record.getColumn(col.getInt(Key.INDEX, i));
-                    Object rawData = column.getRawData();
+                    String rawData = column.asString();
                     if (rawData == null) {
                         row.setNull(name);
                         continue;
                     }
                     switch (type) {
                         case INT:
-                            row.addInt(name, Integer.parseInt(rawData.toString()));
+                            row.addInt(name, Integer.parseInt(rawData));
                             break;
                         case LONG:
                         case BIGINT:
-                            row.addLong(name, Long.parseLong(rawData.toString()));
+                            row.addLong(name, Long.parseLong(rawData));
                             break;
                         case FLOAT:
-                            row.addFloat(name, Float.parseFloat(rawData.toString()));
+                            row.addFloat(name, Float.parseFloat(rawData));
                             break;
                         case DOUBLE:
-                            row.addDouble(name, Double.parseDouble(rawData.toString()));
+                            row.addDouble(name, Double.parseDouble(rawData));
                             break;
                         case BOOLEAN:
-                            row.addBoolean(name, Boolean.getBoolean(rawData.toString()));
+                            row.addBoolean(name, Boolean.getBoolean(rawData));
                             break;
                         case STRING:
                         default:
-                            row.addString(name, rawData.toString());
+                            row.addString(name, rawData);
                     }
                 }
                 try {
-                    RetryUtil.executeWithRetry(()->{
+                    RetryUtil.executeWithRetry(() -> {
                         if (isUpsert) {
                             //覆盖更新
                             session.apply(upsert);
@@ -132,20 +135,22 @@ public class KuduWriterTask {
                             //增量更新
                             session.apply(insert);
                         }
-                        //提前写数据，阈值可自定义
-                        if (counter.incrementAndGet() > batchSize * 0.75) {
+                        //flush
+                        if (counter.longValue() > (batchSize * 0.8)) {
                             session.flush();
-                            counter.set(0L);
+                            counter.reset();
                         }
+                        counter.increment();
                         return true;
-                    },5,1000L,true);
+                    }, 5, 500L, true);
 
                 } catch (Exception e) {
                     LOG.error("Data write failed!", e);
                     if (isSkipFail) {
                         LOG.warn("Because you have configured skipFail is true,this data will be skipped!");
                         taskPluginCollector.collectDirtyRecord(record, e.getMessage());
-                    }else {
+                        continue;
+                    } else {
                         throw e;
                     }
                 }
