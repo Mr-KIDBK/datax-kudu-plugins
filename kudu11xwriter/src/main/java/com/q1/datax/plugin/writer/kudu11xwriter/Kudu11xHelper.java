@@ -315,6 +315,7 @@ public class Kudu11xHelper {
         configuration.set(Key.SKIP_FAIL, isSkipFail);
         List<Configuration> columns = configuration.getListConfiguration(Key.COLUMN);
         List<Configuration> goalColumns = new ArrayList<>();
+        //column参数验证
         int indexFlag = 0;
         boolean primaryKey = true;
         int primaryKeyFlag = 0;
