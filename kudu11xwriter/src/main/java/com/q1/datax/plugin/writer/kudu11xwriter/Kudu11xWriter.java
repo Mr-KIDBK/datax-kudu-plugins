@@ -65,7 +65,6 @@ public class Kudu11xWriter extends Writer {
         }
         @Override
         public void startWrite(RecordReceiver lineReceiver) {
-            LOG.info("-----THREAD:"+Thread.currentThread().getName());
             this.kuduTaskProxy.startWriter(lineReceiver,super.getTaskPluginCollector());
         }
 

@@ -12,11 +12,10 @@ import org.apache.kudu.client.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.Callable;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.LongAdder;
@@ -28,28 +27,30 @@ import java.util.concurrent.atomic.LongAdder;
 public class KuduWriterTask {
     private final static Logger LOG = LoggerFactory.getLogger(KuduWriterTask.class);
 
-    public List<Configuration> columns;
-    public String encoding;
-    public String insertMode;
-    public Double batchSize;
-    public long mutationBufferSpace;
-    public Boolean isUpsert;
-    public Boolean isSkipFail;
-
+    private List<Configuration> columns;
+    private List<List<Configuration>> columnLists;
+    private ThreadPoolExecutor pool;
+    private String encoding;
+    private Double batchSize;
+    private Boolean isUpsert;
+    private Boolean isSkipFail;
     public KuduClient kuduClient;
-    public KuduTable table;
     public KuduSession session;
+    private KuduTable table;
     private Integer primaryKeyIndexUntil;
 
+    private final Object lock = new Object();
 
     public KuduWriterTask(com.alibaba.datax.common.util.Configuration configuration) {
-        this.columns = configuration.getListConfiguration(Key.COLUMN);
+        columns = configuration.getListConfiguration(Key.COLUMN);
+        columnLists = Kudu11xHelper.getColumnLists(columns);
+        pool = Kudu11xHelper.createRowAddThreadPool(columnLists.size());
+
         this.encoding = configuration.getString(Key.ENCODING);
-        this.insertMode = configuration.getString(Key.INSERT_MODE);
         this.batchSize = configuration.getDouble(Key.WRITE_BATCH_SIZE);
-        this.mutationBufferSpace = configuration.getLong(Key.MUTATION_BUFFER_SPACE);
-        this.isUpsert = !configuration.getString(Key.INSERT_MODE).equals("insert");
+        this.isUpsert = !configuration.getString(Key.INSERT_MODE).equalsIgnoreCase("insert");
         this.isSkipFail = configuration.getBool(Key.SKIP_FAIL);
+        long mutationBufferSpace = configuration.getLong(Key.MUTATION_BUFFER_SPACE);
 
         this.kuduClient = Kudu11xHelper.getKuduClient(configuration.getString(Key.KUDU_CONFIG));
         this.table = Kudu11xHelper.getKuduTable(configuration, kuduClient);
@@ -61,7 +62,7 @@ public class KuduWriterTask {
     }
 
     public void startWriter(RecordReceiver lineReceiver, TaskPluginCollector taskPluginCollector) {
-        LOG.info("--kuduwriter began to write!");
+        LOG.info("kuduwriter began to write!");
         Record record;
         LongAdder counter = new LongAdder();
         try {
@@ -82,6 +83,7 @@ public class KuduWriterTask {
                     continue;
                 }
 
+                CountDownLatch countDownLatch = new CountDownLatch(columnLists.size());
                 Upsert upsert = table.newUpsert();
                 Insert insert = table.newInsert();
                 PartialRow row;
@@ -92,40 +94,61 @@ public class KuduWriterTask {
                     //增量更新
                     row = insert.getRow();
                 }
+                for (List<Configuration> columnList : columnLists) {
+//
+                    Record finalRecord = record;
+                    pool.submit(()->{
 
-                for (int i = 0; i < columns.size(); i++) {
+                        for (Configuration col : columnList) {
 
-                    Configuration col = columns.get(i);
-                    String name = col.getString(Key.NAME);
-                    ColumnType type = ColumnType.getByTypeName(col.getString(Key.TYPE));
-                    Column column = record.getColumn(col.getInt(Key.INDEX, i));
-                    String rawData = column.asString();
-                    if (rawData == null) {
-                        row.setNull(name);
-                        continue;
-                    }
-                    switch (type) {
-                        case INT:
-                            row.addInt(name, Integer.parseInt(rawData));
-                            break;
-                        case LONG:
-                        case BIGINT:
-                            row.addLong(name, Long.parseLong(rawData));
-                            break;
-                        case FLOAT:
-                            row.addFloat(name, Float.parseFloat(rawData));
-                            break;
-                        case DOUBLE:
-                            row.addDouble(name, Double.parseDouble(rawData));
-                            break;
-                        case BOOLEAN:
-                            row.addBoolean(name, Boolean.getBoolean(rawData));
-                            break;
-                        case STRING:
-                        default:
-                            row.addString(name, rawData);
-                    }
+                            String name = col.getString(Key.NAME);
+                            ColumnType type = ColumnType.getByTypeName(col.getString(Key.TYPE, "string"));
+                            Column column = finalRecord.getColumn(col.getInt(Key.INDEX));
+                            String rawData = column.asString();
+                            if (rawData == null) {
+                                synchronized (lock) {
+                                    row.setNull(name);
+                                }
+                                continue;
+                            }
+                            switch (type) {
+                                case INT:
+                                    synchronized (lock) {
+                                        row.addInt(name, Integer.parseInt(rawData));
+                                    }
+                                    break;
+                                case LONG:
+                                case BIGINT:
+                                    synchronized (lock) {
+                                        row.addLong(name, Long.parseLong(rawData));
+                                    }
+                                    break;
+                                case FLOAT:
+                                    synchronized (lock) {
+                                        row.addFloat(name, Float.parseFloat(rawData));
+                                    }
+                                    break;
+                                case DOUBLE:
+                                    synchronized (lock) {
+                                        row.addDouble(name, Double.parseDouble(rawData));
+                                    }
+                                    break;
+                                case BOOLEAN:
+                                    synchronized (lock) {
+                                        row.addBoolean(name, Boolean.getBoolean(rawData));
+                                    }
+                                    break;
+                                case STRING:
+                                default:
+                                    synchronized (lock) {
+                                        row.addString(name, rawData);
+                                    }
+                            }
+                        }
+                        countDownLatch.countDown();
+                    });
                 }
+                countDownLatch.await();
                 try {
                     RetryUtil.executeWithRetry(() -> {
                         if (isUpsert) {
@@ -179,6 +202,7 @@ public class KuduWriterTask {
             i.decrementAndGet();
         } finally {
             try {
+                pool.shutdown();
                 session.flush();
             } catch (KuduException e) {
                 LOG.error("==kuduwriter flush error! the results may not be complete！");
