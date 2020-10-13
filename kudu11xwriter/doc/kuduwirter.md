@@ -116,7 +116,7 @@ eg:
 | column         |                     | 列                                                           | 是       |
 | name           |                     | 列名                                                         | 是       |
 | type           | string              | 列的类型，现支持INT, FLOAT, STRING, BIGINT, DOUBLE, BOOLEAN, LONG。 | 否       |
-| index          | 升序排列            | 列索引位置，如reader中取到的某一字段在第二位置（eg： name， id， age）但kudu目标表结构不同（eg：id，name， age），此时就需要将index赋值为（1，0，2），默认顺序（0，1，2） | 否       |
+| index          | 升序排列            | 列索引位置(要么全写，要么不写)，如reader中取到的某一字段在第二位置（eg： name， id， age）但kudu目标表结构不同（eg：id，name， age），此时就需要将index赋值为（1，0，2），默认顺序（0，1，2） | 否       |
 | primaryKey     | false               | 是否为主键（请将所有的主键列写在前面）,不表明主键将不会检查过滤脏数据 | 否       |
 | compress       | DEFAULT_COMPRESSION | 压缩格式                                                     | 否       |
 | encoding       | AUTO_ENCODING       | 编码                                                         | 否       |
