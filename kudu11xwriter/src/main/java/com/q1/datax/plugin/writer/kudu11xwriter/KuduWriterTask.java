@@ -94,8 +94,8 @@ public class KuduWriterTask {
                     //增量更新
                     row = insert.getRow();
                 }
+
                 for (List<Configuration> columnList : columnLists) {
-//
                     Record finalRecord = record;
                     pool.submit(()->{
 
@@ -172,7 +172,6 @@ public class KuduWriterTask {
                     if (isSkipFail) {
                         LOG.warn("Because you have configured skipFail is true,this data will be skipped!");
                         taskPluginCollector.collectDirtyRecord(record, e.getMessage());
-                        continue;
                     } else {
                         throw e;
                     }
@@ -189,24 +188,20 @@ public class KuduWriterTask {
                     session.flush();
                     break;
                 }
-                Thread.sleep(1000L);
+                Thread.sleep(20L);
                 i.decrementAndGet();
             }
         } catch (Exception e) {
             LOG.info("Waiting for data to be inserted...... " + i + "s");
-            try {
-                Thread.sleep(1000L);
-            } catch (InterruptedException ex) {
-                ex.printStackTrace();
-            }
-            i.decrementAndGet();
+
         } finally {
             try {
                 pool.shutdown();
+                //强制刷写
                 session.flush();
             } catch (KuduException e) {
-                LOG.error("==kuduwriter flush error! the results may not be complete！");
-                e.printStackTrace();
+                LOG.error("kuduwriter flush error! the results may not be complete！");
+                throw DataXException.asDataXException(Kudu11xWriterErrorcode.PUT_KUDU_ERROR, e.getMessage());
             }
         }
 
