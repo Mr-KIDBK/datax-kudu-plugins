@@ -168,9 +168,9 @@ public class KuduWriterTask {
                     }, 5, 500L, true);
 
                 } catch (Exception e) {
-                    LOG.error("Data write failed!", e);
+                    LOG.error("Record Write Failure!", e);
                     if (isSkipFail) {
-                        LOG.warn("Because you have configured skipFail is true,this data will be skipped!");
+                        LOG.warn("Since you have configured \"skipFail\" to be true, this record will be skipped !");
                         taskPluginCollector.collectDirtyRecord(record, e.getMessage());
                     } else {
                         throw e;
@@ -178,7 +178,7 @@ public class KuduWriterTask {
                 }
             }
         } catch (Exception e) {
-            LOG.error("write failed! the task will exit!");
+            LOG.error("write failure! the task will exit!");
             throw DataXException.asDataXException(Kudu11xWriterErrorcode.PUT_KUDU_ERROR, e.getMessage());
         }
         AtomicInteger i = new AtomicInteger(10);
@@ -192,7 +192,7 @@ public class KuduWriterTask {
                 i.decrementAndGet();
             }
         } catch (Exception e) {
-            LOG.info("Waiting for data to be inserted...... " + i + "s");
+            LOG.info("Waiting for data to be written to kudu...... " + i + "s");
 
         } finally {
             try {
@@ -200,7 +200,7 @@ public class KuduWriterTask {
                 //强制刷写
                 session.flush();
             } catch (KuduException e) {
-                LOG.error("kuduwriter flush error! the results may not be complete！");
+                LOG.error("kuduwriter flush error! The results may be incomplete！");
                 throw DataXException.asDataXException(Kudu11xWriterErrorcode.PUT_KUDU_ERROR, e.getMessage());
             }
         }

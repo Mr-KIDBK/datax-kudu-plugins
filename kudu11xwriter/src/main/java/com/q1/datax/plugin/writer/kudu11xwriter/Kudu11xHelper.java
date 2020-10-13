@@ -198,7 +198,7 @@ public class Kudu11xHelper {
                 kuduClient.close();
             }
         } catch (KuduException e) {
-            LOG.warn("kudu client is not gracefully closed !");
+            LOG.warn("The \"kudu client\" was not stopped gracefully. !");
 
         }
 

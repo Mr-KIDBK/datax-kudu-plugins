@@ -76,7 +76,7 @@ public class Kudu11xWriter extends Writer {
                     kuduTaskProxy.session.close();
                 }
             }catch (Exception e){
-                LOG.warn("kudu session is not gracefully closed !");
+                LOG.warn("The \"kudu session\" was not stopped gracefully !");
             }
             Kudu11xHelper.closeClient(kuduTaskProxy.kuduClient);
 
