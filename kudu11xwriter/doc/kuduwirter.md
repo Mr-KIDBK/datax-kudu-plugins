@@ -104,7 +104,7 @@ eg:
 
 
 
-![image-20200901193148188](./image-20200901193148188.png)
+![image-20200901193148188](https://github.com/Mr-KIDBK/datax-kudu-plugins/blob/master/kudu11xwriter/doc/image-20200901193148188.png)
 
 ##### 配置列表
 
