@@ -7,7 +7,7 @@ eg:
 
 ```json
 {
-  "name": "kudu11xwriter",
+  "name": "kuduwriter",
   "parameter": {
     "kuduConfig": {
       "kudu.master_addresses": "***",
@@ -71,7 +71,7 @@ eg:
 
 ```json
         "writer": {
-          "name": "kudu11xwriter",
+          "name": "kuduwriter",
           "parameter": {
             "kuduConfig": {
               "kudu.master_addresses": "***"
@@ -104,7 +104,7 @@ eg:
 
 
 
-![image-20200901193148188](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200901193148188.png)
+![image-20200901193148188](./image-20200901193148188.png)
 
 ##### 配置列表
 
