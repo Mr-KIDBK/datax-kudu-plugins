@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce402995-8102-4d24-bdae-3359e9de9b1c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/kudu11xwriter/doc/image-20200901193148188.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kudu11xwriter/doc/kuduwirter.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kudu11xwriter/doc/kuduwirter.md" beforeDir="false" afterPath="$PROJECT_DIR$/kudu11xwriter/doc/kuduwirter.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kudu11xwriter/src/main/java/com/q1/datax/plugin/writer/kudu11xwriter/Kudu11xHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/kudu11xwriter/src/main/java/com/q1/datax/plugin/writer/kudu11xwriter/Kudu11xHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kudu11xwriter/src/main/java/com/q1/datax/plugin/writer/kudu11xwriter/KuduWriterTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/kudu11xwriter/src/main/java/com/q1/datax/plugin/writer/kudu11xwriter/KuduWriterTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kudu11xwriter/src/test/java/com/dai/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/kudu11xwriter/src/test/java/com/dai/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kudu11xwriter/target/test-classes/com/dai/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/kudu11xwriter/target/test-classes/com/dai/test.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,6 +82,7 @@
       <recent name="q1" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\workspace\datax-plugins\kudu11xwriter\doc" />
       <recent name="D:\workspace\datax-plugins\kudu11xwriter\src\main" />
       <recent name="D:\workspace\datax-plugins\kudu11xwriter\src\main\resources" />
       <recent name="D:\workspace\datax-plugins\kudu11xwriter\src\main\java\q1\kudu\conf" />
@@ -164,7 +167,7 @@
       <workItem from="1602328677550" duration="267000" />
       <workItem from="1602330017912" duration="212000" />
       <workItem from="1602330531267" duration="14630000" />
-      <workItem from="1602493635538" duration="18726000" />
+      <workItem from="1602493635538" duration="32559000" />
     </task>
     <task id="LOCAL-00001" summary="readme update">
       <created>1598959361333</created>
@@ -285,7 +288,21 @@
       <option name="project" value="LOCAL" />
       <updated>1602554101231</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="update doc">
+      <created>1602555671925</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1602555671925</updated>
+    </task>
+    <task id="LOCAL-00019" summary="update doc">
+      <created>1602555764243</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1602555764243</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -296,7 +313,8 @@
     <MESSAGE value="update" />
     <MESSAGE value="bug fix" />
     <MESSAGE value="write speed optimization" />
-    <option name="LAST_COMMIT_MESSAGE" value="write speed optimization" />
+    <MESSAGE value="update doc" />
+    <option name="LAST_COMMIT_MESSAGE" value="update doc" />
   </component>
   <component name="WindowStateProjectService">
     <state x="452" y="95" key="#Inspections" timestamp="1602552799205">
@@ -311,27 +329,27 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="168" width="1178" height="855" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601256531331" />
-    <state x="721" y="162" key="#com.intellij.ide.util.MemberChooser" timestamp="1602328115156">
+    <state x="721" y="162" key="#com.intellij.ide.util.MemberChooser" timestamp="1602587451089">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="721" y="162" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602328115156" />
+    <state x="721" y="162" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602587451089" />
     <state x="627" y="208" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1602469017265">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="627" y="208" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602469017265" />
-    <state x="559" y="29" width="1319" height="1011" key="CommitChangelistDialog2" timestamp="1602555670885">
+    <state x="559" y="29" width="1319" height="1011" key="CommitChangelistDialog2" timestamp="1602555763240">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="559" y="29" width="1319" height="1011" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602555670885" />
+    <state x="559" y="29" width="1319" height="1011" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602555763240" />
     <state x="2409" y="29" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1601380752659" />
     <state x="648" y="174" key="DetectedRootsChooserDialog" timestamp="1602303022238">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="648" y="174" key="DetectedRootsChooserDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602303022238" />
-    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1602508800499">
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1602591221356">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602508800499" />
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602591221356" />
     <state x="690" y="218" key="FileChooserDialogImpl" timestamp="1602318354438">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -344,25 +362,25 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="794" y="387" key="Github.ShareDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598958691946" />
-    <state width="1867" height="297" key="GridCell.Tab.0.bottom" timestamp="1602552923357">
+    <state width="1867" height="294" key="GridCell.Tab.0.bottom" timestamp="1602591211674">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1867" height="297" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602552923357" />
+    <state width="1867" height="294" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602591211674" />
     <state width="1867" height="311" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1601447523286" />
-    <state width="1867" height="297" key="GridCell.Tab.0.center" timestamp="1602552923357">
+    <state width="1867" height="294" key="GridCell.Tab.0.center" timestamp="1602591211674">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1867" height="297" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602552923357" />
+    <state width="1867" height="294" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602591211674" />
     <state width="1867" height="311" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1601447523286" />
-    <state width="1867" height="297" key="GridCell.Tab.0.left" timestamp="1602552923357">
+    <state width="1867" height="294" key="GridCell.Tab.0.left" timestamp="1602591211674">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1867" height="297" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602552923357" />
+    <state width="1867" height="294" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602591211674" />
     <state width="1867" height="311" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1601447523286" />
-    <state width="1867" height="297" key="GridCell.Tab.0.right" timestamp="1602552923357">
+    <state width="1867" height="294" key="GridCell.Tab.0.right" timestamp="1602591211674">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1867" height="297" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602552923357" />
+    <state width="1867" height="294" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602591211674" />
     <state width="1867" height="311" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1601447523286" />
     <state x="440" y="193" key="IDE.errors.dialog" timestamp="1602508837820">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -376,18 +394,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="614" y="198" width="681" height="655" key="StructurePopup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602466022304" />
-    <state x="452" y="188" key="Vcs.Push.Dialog.v2" timestamp="1602555676759">
+    <state x="452" y="188" key="Vcs.Push.Dialog.v2" timestamp="1602555768677">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="452" y="188" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602555676759" />
+    <state x="452" y="188" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602555768677" />
     <state x="719" y="417" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602508703979">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="719" y="417" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602508703979" />
-    <state x="1920" y="0" width="1451" height="985" maximized="true" key="dock-window-1" timestamp="1602555333826">
+    <state x="1920" y="0" width="1451" height="985" key="dock-window-1" timestamp="1602590365178">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="1920" y="0" width="1451" height="985" maximized="true" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602555333826" />
+    <state x="1920" y="0" width="1451" height="985" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602590365178" />
     <state x="1920" y="0" width="1528" height="985" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602486933213" />
     <state x="1608" y="-27" width="1448" height="985" key="dock-window-2" timestamp="1600224169759">
       <screen x="1920" y="0" width="1920" height="1040" />
@@ -410,9 +428,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="532" y="237" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602491579557" />
-    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup" timestamp="1598945047263">
+    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup" timestamp="1602587382807">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598945047263" />
+    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602587382807" />
   </component>
 </project>
