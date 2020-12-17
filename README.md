@@ -7,7 +7,7 @@ eg:
 
 ```json
 {
-  "name": "kuduwriter",
+  "name": "kudu11xwriter",
   "parameter": {
     "kuduConfig": {
       "kudu.master_addresses": "***",
@@ -71,7 +71,7 @@ eg:
 
 ```json
         "writer": {
-          "name": "kuduwriter",
+          "name": "kudu11xwriter",
           "parameter": {
             "kuduConfig": {
               "kudu.master_addresses": "***"
