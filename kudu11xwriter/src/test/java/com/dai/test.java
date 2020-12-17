@@ -21,7 +21,7 @@ import static org.apache.kudu.client.AsyncKuduClient.LOG;
 public class test {
 
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, ExecutionException {
         List<String> src = Arrays.asList("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20");
 
 
@@ -60,19 +60,22 @@ public class test {
                             }
                         }, new ThreadPoolExecutor.AbortPolicy());
         for (int j = 0; j < 5; j++) {
-            CountDownLatch countDownLatch = new CountDownLatch(ls.size());
+//            CountDownLatch countDownLatch = new CountDownLatch(ls.size());
         for (List<String> l : ls) {
             System.out.println(l);
-                threadPoolExecutor.submit(() -> {
-                    for (String s : l) {
-                        System.out.println(s);
-                    }
-                    countDownLatch.countDown();
-                    System.out.println(Thread.currentThread().getName());
-                });
+            Future<?> submit = threadPoolExecutor.submit(() -> {
+                for (String s : l) {
+                    System.out.println(s);
+                }
+//                countDownLatch.countDown();
+                System.out.println(Thread.currentThread().getName());
 
-            }
-            countDownLatch.await();
+            });
+
+
+        }
+
+//            countDownLatch.await();
             System.out.println("--------------------------------------------");
 //            new Thread(()->{
 //                for (String s : l) {
