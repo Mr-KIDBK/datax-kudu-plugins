@@ -54,8 +54,8 @@ public class Kudu11xHelper {
         try {
             String masterAddress = (String) conf.get(Key.KUDU_MASTER);
             kuduClient = new KuduClient.KuduClientBuilder(masterAddress)
-                    .defaultAdminOperationTimeoutMs(Long.parseLong((String) conf.get(Key.KUDU_ADMIN_TIMEOUT)))
-                    .defaultOperationTimeoutMs(Long.parseLong((String) conf.get(Key.KUDU_SESSION_TIMEOUT)))
+                    .defaultAdminOperationTimeoutMs(Long.parseLong(conf.get(Key.KUDU_ADMIN_TIMEOUT).toString()))
+                    .defaultOperationTimeoutMs(Long.parseLong(conf.get(Key.KUDU_SESSION_TIMEOUT).toString()))
                     .build();
         } catch (Exception e) {
             throw DataXException.asDataXException(Kudu11xWriterErrorcode.GET_KUDU_CONNECTION_ERROR, e);
