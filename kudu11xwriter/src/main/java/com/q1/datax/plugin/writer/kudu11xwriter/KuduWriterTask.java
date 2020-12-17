@@ -13,11 +13,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.*;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.Future;
+import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.LongAdder;
 
 /**
@@ -41,7 +41,7 @@ public class KuduWriterTask {
 
     private final Object lock = new Object();
 
-    public KuduWriterTask(com.alibaba.datax.common.util.Configuration configuration) {
+    public KuduWriterTask(Configuration configuration) {
         columns = configuration.getListConfiguration(Key.COLUMN);
         columnLists = Kudu11xHelper.getColumnLists(columns);
         pool = Kudu11xHelper.createRowAddThreadPool(columnLists.size());
@@ -94,61 +94,66 @@ public class KuduWriterTask {
                     //增量更新
                     row = insert.getRow();
                 }
-
+                List<Future<?>> futures = new ArrayList<>();
                 for (List<Configuration> columnList : columnLists) {
                     Record finalRecord = record;
-                    pool.submit(()->{
-
-                        for (Configuration col : columnList) {
-
-                            String name = col.getString(Key.NAME);
-                            ColumnType type = ColumnType.getByTypeName(col.getString(Key.TYPE, "string"));
-                            Column column = finalRecord.getColumn(col.getInt(Key.INDEX));
-                            String rawData = column.asString();
-                            if (rawData == null) {
-                                synchronized (lock) {
-                                    row.setNull(name);
+                    Future<?> future = pool.submit(() -> {
+                        try {
+                            for (Configuration col : columnList) {
+                                String name = col.getString(Key.NAME);
+                                ColumnType type = ColumnType.getByTypeName(col.getString(Key.TYPE, "string"));
+                                Column column = finalRecord.getColumn(col.getInt(Key.INDEX));
+                                String rawData = column.asString();
+                                if (rawData == null) {
+                                    synchronized (lock) {
+                                        row.setNull(name);
+                                    }
+                                    continue;
                                 }
-                                continue;
+                                switch (type) {
+                                    case INT:
+                                        synchronized (lock) {
+                                            row.addInt(name, Integer.parseInt(rawData));
+                                        }
+                                        break;
+                                    case LONG:
+                                    case BIGINT:
+                                        synchronized (lock) {
+                                            row.addLong(name, Long.parseLong(rawData));
+                                        }
+                                        break;
+                                    case FLOAT:
+                                        synchronized (lock) {
+                                            row.addFloat(name, Float.parseFloat(rawData));
+                                        }
+                                        break;
+                                    case DOUBLE:
+                                        synchronized (lock) {
+                                            row.addDouble(name, Double.parseDouble(rawData));
+                                        }
+                                        break;
+                                    case BOOLEAN:
+                                        synchronized (lock) {
+                                            row.addBoolean(name, Boolean.getBoolean(rawData));
+                                        }
+                                        break;
+                                    case STRING:
+                                    default:
+                                        synchronized (lock) {
+                                            row.addString(name, rawData);
+                                        }
+                                }
                             }
-                            switch (type) {
-                                case INT:
-                                    synchronized (lock) {
-                                        row.addInt(name, Integer.parseInt(rawData));
-                                    }
-                                    break;
-                                case LONG:
-                                case BIGINT:
-                                    synchronized (lock) {
-                                        row.addLong(name, Long.parseLong(rawData));
-                                    }
-                                    break;
-                                case FLOAT:
-                                    synchronized (lock) {
-                                        row.addFloat(name, Float.parseFloat(rawData));
-                                    }
-                                    break;
-                                case DOUBLE:
-                                    synchronized (lock) {
-                                        row.addDouble(name, Double.parseDouble(rawData));
-                                    }
-                                    break;
-                                case BOOLEAN:
-                                    synchronized (lock) {
-                                        row.addBoolean(name, Boolean.getBoolean(rawData));
-                                    }
-                                    break;
-                                case STRING:
-                                default:
-                                    synchronized (lock) {
-                                        row.addString(name, rawData);
-                                    }
-                            }
+                        } finally {
+                            countDownLatch.countDown();
                         }
-                        countDownLatch.countDown();
                     });
+                    futures.add(future);
                 }
                 countDownLatch.await();
+                for (Future<?> future : futures) {
+                    future.get();
+                }
                 try {
                     RetryUtil.executeWithRetry(() -> {
                         if (isUpsert) {
@@ -173,7 +178,7 @@ public class KuduWriterTask {
                         LOG.warn("Since you have configured \"skipFail\" to be true, this record will be skipped !");
                         taskPluginCollector.collectDirtyRecord(record, e.getMessage());
                     } else {
-                        throw e;
+                        throw DataXException.asDataXException(Kudu11xWriterErrorcode.PUT_KUDU_ERROR, e.getMessage());
                     }
                 }
             }
